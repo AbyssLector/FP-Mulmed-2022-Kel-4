@@ -1,0 +1,1 @@
+const tesseract = require('node-tesseract-ocr')
