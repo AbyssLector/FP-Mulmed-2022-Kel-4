@@ -25,7 +25,7 @@
         function configure(){
             Webcam.set({
                 width: 480,
-                heightL: 360,
+                height: 360,
                 image_format: 'jpeg',
                 jpeg_quality: 90
             });
