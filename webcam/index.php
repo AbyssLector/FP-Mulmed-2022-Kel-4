@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr>
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,6 +11,7 @@
         <div id="my_camera">
 
         </div>
+
         <div id="result" style="visibility: hidden; position: absolute;"></div>
         <br>
         <button type="button" onclick="saveSnap();">Save</button>
@@ -35,7 +36,7 @@
 
         function saveSnap(){
             Webcam.snap(function(data_uri){
-                document.getElementByID('results').innerHTML=
+                document.getElementById('results').innerHTML=
                     '<img id="webcam" src="'+data_uri+'">';
             });
 
