@@ -36,17 +36,16 @@
 
         function saveSnap(){
             Webcam.snap(function(data_uri){
-                document.getElementById('results').innerHTML=
+                document.getElementById('result').innerHTML=
                     '<img id="webcam" src="'+data_uri+'">';
-            });
+                });
 
-        Webcam.reset();
+            Webcam.reset();
 
-        var base64image = document.getElementById("webcam").src;
-        Webcam.upload(base64image, 'function.php', function(code,text){
-            alert('Save Successfully');
-            document.location.href = "image.php"
-        })
+            var base64image = document.getElementById("webcam").src;
+            Webcam.upload(base64image, 'function.php', function(code,text){
+                alert('Save Successfully');
+            })
         }
     </script>
 </body>
