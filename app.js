@@ -9,10 +9,12 @@ app.use(express.urlencoded({ limit: '10mb', extended: false }));
 app.get('/', (req, res) => {
     // const { link } = req.body;
     // console.log(req.body);
-    tesseract.recognize("C:/Users/IHSAN/Downloads/pic.png", "eng")
+    tesseract.recognize("js/tes2.jpeg", "eng")
         .then(result => {
             console.log(result.data.text)
-            return res.status(200).json({ msg: result.data.text })
+            let temp = result.data.text;
+            newStr = temp.replace(/\n/g, ' ')
+            return res.status(200).json({ msg: newStr })
         }).catch(err => {
             console.log(err.message)
             return res.status(200).json({ err: err.message })

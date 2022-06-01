@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .hidden {
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background:black;
+        text-align:center;
+        color:white;
+        }
+    .hide .hidden{display:block}
+    </style>
+</head>
+<body>
+    <h1>
+        Talking page
+    </h1>
+    <div class="hidden">Activate</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    function loadDoc() {
+    const xhttp = new XMLHttpRequest();
+    xhttp.onload = function() {
+        test = JSON.parse(this.responseText);
+        //alert(test.msg)
+        document.getElementById("demo").innerHTML = test.msg;
+    }
+    xhttp.open("GET", "http://localhost:3000");
+    xhttp.send();
+    }
+
+    say.queue = [];
+    $(document).on("click mousemove", deQueue)
+    say(test.msg)
+
+    function say(s) {
+    var utt = new SpeechSynthesisUtterance();
+    utt.text = s;
+    say.queue.push(utt);
+    $("html").addClass("hide")
+    }
+
+    function deQueue() {
+    if (say.queue.length) {
+        speechSynthesis.speak(say.queue.pop());
+        $("html").removeClass("hide")
+    }
+    }
+</script>
+</html>
