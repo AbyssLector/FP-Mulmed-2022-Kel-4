@@ -22,7 +22,7 @@ http://www.templatemo.com/tm-498-stimulus
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700" rel="stylesheet">
 
 </head>
-<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+<body onload="configure();" data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
 
 
 <!-- PRE LOADER -->
@@ -69,9 +69,21 @@ http://www.templatemo.com/tm-498-stimulus
      <div class="container">
           <div class="row">
 
-               <div class="col-md-6 col-sm-6">
+               <!-- <div class="col-md-6 col-sm-6">
                     <div class="home-img">
                          <img src="./images/home-image.jpg" style="background-size: cover; display: flex; justify-content: center; align-items: center;height: 100vh;">
+                    </div>
+               </div> -->
+               <div class="col-md-6 col-sm-6">
+                    <div class="home-img container" style="background-size: cover; display: flex; justify-content: center; align-items: center;">
+                              <div id="my_camera">
+                              </div>>
+                         <!-- <div id="result" style="visibility: hidden; position: absolute;"></div>
+                              <br>
+                              <button type="button" onclick="saveSnap();">Save</button>
+                              <br>
+                             <a href="./function/webcam-image.php"><button type="button" name="button">Go To Image Database Page</button></a> 
+                         </div> -->
                     </div>
                </div>
 
@@ -395,6 +407,9 @@ http://www.templatemo.com/tm-498-stimulus
 <script src="js/smoothscroll.js"></script>
 <script src="js/wow.min.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/webcam.min.js"></script>
+<!-- <script src="js/webcam.js"></script> -->
+
 
 </body>
 </html>

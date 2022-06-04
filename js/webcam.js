@@ -1,39 +1,24 @@
-const webcamElement = document.getElementById('webcam');
-const canvasElement = document.getElementById('canvas');
-const snapSoundElement = document.getElementById('snapSound');
-const webcam = new Webcam(webcamElement, 'user', canvasElement, snapSoundElement);
-const sleep = () => {
-    return new Promise(resolve => setTimeout(resolve, 5000))
+function configure(){
+    Webcam.set({
+        width: 960,
+        height: 720,
+        image_format: 'jpeg',
+        jpeg_quality: 90
+    });
+
+    Webcam.attach('#my_camera');
 }
 
-webcam.start()
-    .then(result => {
-        console.log("webcam started");
-        // sleep();
-        // alert("take picture");
+function saveSnap(){
+    Webcam.snap(function(data_uri){
+        document.getElementById('result').innerHTML=
+            '<img id="webcam" src="'+data_uri+'">';
+        });
+
+    Webcam.reset();
+
+    var base64image = document.getElementById("webcam").src;
+    Webcam.upload(base64image, './function/webcam-function.php', function(code,text){
+        alert('Save Successfully');
     })
-    .catch(err => {
-        console.log(err);
-    });
-function takePhoto() {
-    let picture = webcam.snap();
-
-    document.querySelector('#download-photo').href = picture;
-    // C:\Users\IHSAN\Downloads
-    downloadImage('pic', picture)
-    $.ajax({
-        type: 'GET',
-        url: "http://localhost:3000",
-        success: (response) => {
-            document.querySelector('#text').innerHTML = response;
-        }
-
-    });
-}
-
-const downloadImage = function (name, datauri) {
-    var a = document.createElement('a');
-    a.setAttribute('download', name + '.png');
-    a.setAttribute('href', datauri);
-    a.click();
 }

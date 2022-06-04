@@ -9,7 +9,7 @@ app.use(express.urlencoded({ limit: '10mb', extended: false }));
 app.get('/', (req, res) => {
     // const { link } = req.body;
     // console.log(req.body);
-    tesseract.recognize("js/tes2.jpeg", "eng")
+    tesseract.recognize("img/webcam.jpg", "eng")
         .then(result => {
             console.log(result.data.text)
             let temp = result.data.text;
