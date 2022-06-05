@@ -22,8 +22,8 @@ if (speechSynthesis !== undefined) {
     speechSynthesis.onvoiceschanged = PopulateVoices;
 }
 
-function autoClick(){
-    // document.getElementById("speak-btn").click();
+function auto(){
+    // document.getElementById("speak-btn").dblclick();
     var toSpeak = new SpeechSynthesisUtterance(txtInput.innerHTML);
     var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
     voices.forEach((voice) => {
@@ -31,11 +31,13 @@ function autoClick(){
             toSpeak.voice = voice;
         }
     });
+    alert('Hm?')
     synth.speak(toSpeak);
 }
-// btnSpeak.addEventListener('click', () => {
-// function myFunction(){
+
+// btnSpeak.addEventListener('mouseover', () => {
 //     // document.getElementById("#demo").click();
+//     alert("awoga")
 //     var toSpeak = new SpeechSynthesisUtterance(txtInput.innerHTML);
 //     var selectedVoiceName = voiceList.selectedOptions[0].getAttribute('data-name');
 //     voices.forEach((voice) => {
@@ -44,8 +46,7 @@ function autoClick(){
 //         }
 //     });
 //     synth.speak(toSpeak);
-//     // alert("awoga")
-// }
+    
 // });
 
 function PopulateVoices() {
