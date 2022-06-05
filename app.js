@@ -11,7 +11,7 @@ app.get('/', (req, res) => {
     // console.log(req.body);
     tesseract.recognize("img/webcam.jpg", "eng")
         .then(result => {
-            // console.log(result.data.text)
+            console.log(result.data.text)
             let temp = result.data.text;
             newStr = temp.replace(/\n/g, ' ')
             return res.status(200).json({ msg: newStr })
